@@ -1,0 +1,22 @@
+{
+    "name": "git-symfony/git-symfony",
+    "description": "Symfony reimplementation of initial Git",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Valentin Rusev",
+            "email": "val.rusev@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^7.3",
+        "symfony/filesystem": "^7.3",
+        "symfony/process": "^7.3",
+        "symfony/string": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "GitSymfony\\": "src/"
+        }
+    }
+}

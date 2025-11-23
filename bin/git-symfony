@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use GitSymfony\Command\CatFileCommand;
+use GitSymfony\Command\CommitTreeCommand;
+use GitSymfony\Command\InitDbCommand;
+use GitSymfony\Command\ReadTreeCommand;
+use GitSymfony\Command\ShowDiffCommand;
+use GitSymfony\Command\UpdateCacheCommand;
+use GitSymfony\Command\WriteTreeCommand;
+use GitSymfony\ObjectDatabase;
+use GitSymfony\Repository;
+use Symfony\Component\Console\Application;
+
+$repository = new Repository(getcwd());
+$objects = new ObjectDatabase($repository);
+
+$application = new Application('git-symfony', '0.1.0');
+$application->add(new InitDbCommand($repository));
+$application->add(new UpdateCacheCommand($repository, $objects));
+$application->add(new WriteTreeCommand($repository, $objects));
+$application->add(new ReadTreeCommand($repository, $objects));
+$application->add(new CommitTreeCommand($repository, $objects));
+$application->add(new CatFileCommand($repository, $objects));
+$application->add(new ShowDiffCommand($repository, $objects));
+
+$application->run();
