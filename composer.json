@@ -18,5 +18,13 @@
         "psr-4": {
             "GitSymfony\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GitSymfony\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.4"
     }
 }
