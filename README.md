@@ -76,6 +76,30 @@ The quickest way to see everything working is to follow the original workflow in
 
    Writes the inflated contents into a temporary file and prints its path/type, just like Linus’ original helper.
 
+8. **Make a new commit linked to the previous one**
+
+   Edit the file, update the cache, write a new tree, and create a commit that references the previous commit as its parent.
+
+   ```bash
+   echo " world" >> hello.txt
+   ./bin/git-symfony update-cache hello.txt
+
+   NEW_TREE=$(./bin/git-symfony write-tree)
+   NEW_COMMIT=$(printf "Append world\n" | ./bin/git-symfony commit-tree "$NEW_TREE" -p "$COMMIT")
+
+   echo "New commit $NEW_COMMIT (parent $COMMIT)"
+   ```
+
+   To verify the parent linkage, dump the commit object and inspect it:
+
+   ```bash
+   OUT=$(./bin/git-symfony cat-file "$NEW_COMMIT")
+   COMMIT_FILE=${OUT%%:*}
+   echo "--- commit contents ($COMMIT_FILE) ---"
+   cat "$COMMIT_FILE"
+   # You should see a line:  parent $COMMIT
+   ```
+
 ## Testing
 
 Unit tests cover the critical plumbing (SHA-1 conversion, index parsing, object storage, etc.). Run them with:
