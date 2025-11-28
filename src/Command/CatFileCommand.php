@@ -2,14 +2,27 @@
 
 namespace GitSymfony\Command;
 
+use GitSymfony\ObjectDatabase;
+use GitSymfony\Repository;
 use RuntimeException;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CatFileCommand extends RepositoryCommand
+class CatFileCommand extends Command
 {
     protected static $defaultName = 'cat-file';
+
+    private readonly Repository $repository;
+    private readonly ObjectDatabase $objects;
+
+    public function __construct(Repository $repository, ObjectDatabase $objects)
+    {
+        parent::__construct();
+        $this->repository = $repository;
+        $this->objects = $objects;
+    }
 
     protected function configure(): void
     {

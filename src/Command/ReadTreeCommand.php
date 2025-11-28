@@ -2,15 +2,25 @@
 
 namespace GitSymfony\Command;
 
+use GitSymfony\ObjectDatabase;
 use GitSymfony\Sha1;
+use Symfony\Component\Console\Command\Command;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ReadTreeCommand extends RepositoryCommand
+class ReadTreeCommand extends Command
 {
     protected static $defaultName = 'read-tree';
+
+    private readonly ObjectDatabase $objects;
+
+    public function __construct(ObjectDatabase $objects)
+    {
+        parent::__construct();
+        $this->objects = $objects;
+    }
 
     protected function configure(): void
     {

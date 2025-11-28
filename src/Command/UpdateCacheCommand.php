@@ -4,16 +4,29 @@ namespace GitSymfony\Command;
 
 use GitSymfony\Index\CacheEntry;
 use GitSymfony\Index\IndexFile;
+use GitSymfony\ObjectDatabase;
+use GitSymfony\Repository;
 use GitSymfony\PathValidator;
 use RuntimeException;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class UpdateCacheCommand extends RepositoryCommand
+class UpdateCacheCommand extends Command
 {
     protected static $defaultName = 'update-cache';
+
+    private readonly Repository $repository;
+    private readonly ObjectDatabase $objects;
+
+    public function __construct(Repository $repository, ObjectDatabase $objects)
+    {
+        parent::__construct();
+        $this->repository = $repository;
+        $this->objects = $objects;
+    }
 
     protected function configure(): void
     {

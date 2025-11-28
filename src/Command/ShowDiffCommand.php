@@ -4,13 +4,26 @@ namespace GitSymfony\Command;
 
 use GitSymfony\Index\CacheEntry;
 use GitSymfony\Index\IndexFile;
+use GitSymfony\ObjectDatabase;
+use GitSymfony\Repository;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
-class ShowDiffCommand extends RepositoryCommand
+class ShowDiffCommand extends Command
 {
     protected static $defaultName = 'show-diff';
+
+    private readonly Repository $repository;
+    private readonly ObjectDatabase $objects;
+
+    public function __construct(Repository $repository, ObjectDatabase $objects)
+    {
+        parent::__construct();
+        $this->repository = $repository;
+        $this->objects = $objects;
+    }
 
     protected function configure(): void
     {

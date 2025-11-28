@@ -21,8 +21,8 @@ $application = new Application('git-symfony', '0.1.0');
 $application->add(new InitDbCommand($repository));
 $application->add(new UpdateCacheCommand($repository, $objects));
 $application->add(new WriteTreeCommand($repository, $objects));
-$application->add(new ReadTreeCommand($repository, $objects));
-$application->add(new CommitTreeCommand($repository, $objects));
+$application->add(new ReadTreeCommand($objects));
+$application->add(new CommitTreeCommand($objects));
 $application->add(new CatFileCommand($repository, $objects));
 $application->add(new ShowDiffCommand($repository, $objects));
 

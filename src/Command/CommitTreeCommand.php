@@ -2,7 +2,9 @@
 
 namespace GitSymfony\Command;
 
+use GitSymfony\ObjectDatabase;
 use GitSymfony\Sha1;
+use Symfony\Component\Console\Command\Command;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,9 +13,17 @@ use Symfony\Component\Console\Input\StreamableInputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class CommitTreeCommand extends RepositoryCommand
+class CommitTreeCommand extends Command
 {
     protected static $defaultName = 'commit-tree';
+
+    private readonly ObjectDatabase $objects;
+
+    public function __construct(ObjectDatabase $objects)
+    {
+        parent::__construct();
+        $this->objects = $objects;
+    }
 
     protected function configure(): void
     {

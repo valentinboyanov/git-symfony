@@ -3,21 +3,23 @@
 namespace GitSymfony\Command;
 
 use GitSymfony\Repository;
-use RuntimeException;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Filesystem;
 
-class InitDbCommand extends RepositoryCommand
+class InitDbCommand extends Command
 {
     protected static $defaultName = 'init-db';
 
-    private Filesystem $filesystem;
+    private readonly Filesystem $filesystem;
+    private readonly Repository $repository;
 
     public function __construct(Repository $repository)
     {
-        parent::__construct($repository, null);
+        parent::__construct();
+        $this->repository = $repository;
         $this->filesystem = new Filesystem();
     }
 
