@@ -2,7 +2,7 @@
 
 namespace GitSymfony\Command;
 
-use GitSymfony\Util\Sha1;
+use GitSymfony\Sha1;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

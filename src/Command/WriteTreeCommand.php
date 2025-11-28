@@ -3,7 +3,7 @@
 namespace GitSymfony\Command;
 
 use GitSymfony\Index\IndexFile;
-use GitSymfony\Util\Sha1;
+use GitSymfony\Sha1;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

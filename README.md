@@ -1,13 +1,13 @@
 # Git Symfony – First Commit Recreation
 
-This project re-implements the functionality that shipped with the very first Git commit, but in PHP on top of Symfony Console and friends. It keeps the same command names (`init-db`, `update-cache`, `write-tree`, and so on), the same `.dircache` layout, and the same loose object format so you can reason about the original design while working in a modern stack.
+This project re-implements the functionality that shipped with the very [first Git commit](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290), but in PHP on top of Symfony Console and friends. It keeps the same command names (`init-db`, `update-cache`, `write-tree`, and so on), the same `.dircache` layout, and the same loose object format so you can reason about the original design while working in a modern stack.
 
 ## Requirements
 
 - PHP 8.2+ with the `zlib` extension enabled.
 - Composer.
 
-Install dependencies once:
+Install dependencies:
 
 ```bash
 composer install

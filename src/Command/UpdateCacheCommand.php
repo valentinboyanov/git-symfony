@@ -4,7 +4,7 @@ namespace GitSymfony\Command;
 
 use GitSymfony\Index\CacheEntry;
 use GitSymfony\Index\IndexFile;
-use GitSymfony\Util\PathValidator;
+use GitSymfony\PathValidator;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,9 +1,9 @@
 <?php
 
-namespace GitSymfony\Tests\Util;
+namespace GitSymfony\Tests;
 
 use GitSymfony\Tests\TestCase;
-use GitSymfony\Util\Sha1;
+use GitSymfony\Sha1;
 use InvalidArgumentException;
 
 class Sha1Test extends TestCase

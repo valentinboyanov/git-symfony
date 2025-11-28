@@ -2,7 +2,7 @@
 
 namespace GitSymfony\Index;
 
-use GitSymfony\Util\Sha1;
+use GitSymfony\Sha1;
 use RuntimeException;
 
 class CacheEntry

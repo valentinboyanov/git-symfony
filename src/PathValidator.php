@@ -1,12 +1,9 @@
 <?php
 
-namespace GitSymfony\Util;
+namespace GitSymfony;
 
 final class PathValidator
 {
-    private function __construct()
-    {
-    }
 
     public static function isValid(string $path): bool
     {
@@ -40,3 +37,4 @@ final class PathValidator
         }
     }
 }
+

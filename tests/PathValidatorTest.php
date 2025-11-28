@@ -1,9 +1,9 @@
 <?php
 
-namespace GitSymfony\Tests\Util;
+namespace GitSymfony\Tests;
 
 use GitSymfony\Tests\TestCase;
-use GitSymfony\Util\PathValidator;
+use GitSymfony\PathValidator;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class PathValidatorTest extends TestCase

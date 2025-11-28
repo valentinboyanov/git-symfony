@@ -1,14 +1,11 @@
 <?php
 
-namespace GitSymfony\Util;
+namespace GitSymfony;
 
 use InvalidArgumentException;
 
 final class Sha1
 {
-    private function __construct()
-    {
-    }
 
     public static function toHex(string $binary): string
     {
@@ -30,3 +27,4 @@ final class Sha1
         return $binary;
     }
 }
+
