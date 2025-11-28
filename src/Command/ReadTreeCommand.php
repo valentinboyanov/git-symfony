@@ -12,13 +12,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ReadTreeCommand extends Command
 {
-    protected static $defaultName = 'read-tree';
-
     private readonly ObjectDatabase $objects;
 
     public function __construct(ObjectDatabase $objects)
     {
-        parent::__construct();
+        parent::__construct(name: 'read-tree');
         $this->objects = $objects;
     }
 

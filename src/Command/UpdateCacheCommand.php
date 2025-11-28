@@ -16,14 +16,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class UpdateCacheCommand extends Command
 {
-    protected static $defaultName = 'update-cache';
-
     private readonly Repository $repository;
     private readonly ObjectDatabase $objects;
 
     public function __construct(Repository $repository, ObjectDatabase $objects)
     {
-        parent::__construct();
+        parent::__construct(name: 'update-cache');
         $this->repository = $repository;
         $this->objects = $objects;
     }

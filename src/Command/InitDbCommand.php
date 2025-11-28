@@ -11,14 +11,12 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class InitDbCommand extends Command
 {
-    protected static $defaultName = 'init-db';
-
     private readonly Filesystem $filesystem;
     private readonly Repository $repository;
 
     public function __construct(Repository $repository)
     {
-        parent::__construct();
+        parent::__construct(name: 'init-db');
         $this->repository = $repository;
         $this->filesystem = new Filesystem();
     }

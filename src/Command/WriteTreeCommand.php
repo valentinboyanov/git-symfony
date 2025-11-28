@@ -13,14 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class WriteTreeCommand extends Command
 {
-    protected static $defaultName = 'write-tree';
-
     private readonly Repository $repository;
     private readonly ObjectDatabase $objects;
 
     public function __construct(Repository $repository, ObjectDatabase $objects)
     {
-        parent::__construct();
+        parent::__construct(name: 'write-tree');
         $this->repository = $repository;
         $this->objects = $objects;
     }

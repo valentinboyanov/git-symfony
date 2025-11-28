@@ -15,13 +15,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class CommitTreeCommand extends Command
 {
-    protected static $defaultName = 'commit-tree';
-
     private readonly ObjectDatabase $objects;
 
     public function __construct(ObjectDatabase $objects)
     {
-        parent::__construct();
+        parent::__construct(name: 'commit-tree');
         $this->objects = $objects;
     }
 

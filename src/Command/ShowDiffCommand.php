@@ -13,14 +13,12 @@ use Symfony\Component\Process\Process;
 
 class ShowDiffCommand extends Command
 {
-    protected static $defaultName = 'show-diff';
-
     private readonly Repository $repository;
     private readonly ObjectDatabase $objects;
 
     public function __construct(Repository $repository, ObjectDatabase $objects)
     {
-        parent::__construct();
+        parent::__construct(name: 'show-diff');
         $this->repository = $repository;
         $this->objects = $objects;
     }
